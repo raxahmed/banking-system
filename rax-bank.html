@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title> Rax Bank </title>
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+     <link rel="stylesheet" href="rax-bank.css">
+  </head>
+  <body>
+      <div id="loging-part">
+        <h1 class="text-center"> Welcome To Rax Bank </h1>
+        <div class="loging ">
+          <h4>login</h4>
+          <input class="form-control"type="text" name="email" value="" placeholder="email"><br>
+          <input class="form-control"type="password" name="password" value="" placeholder="password"><br>
+            <button id="login"  class="btn-primary btn" type="button" name="button">Enter</button>
+        </div>
+      </div>
+      <div id="transaction">
+
+           <div class="screen">
+
+                <div class="row ">
+                  <div class="col-md-4  ">
+                  <div class="status Deposite">
+                    <h5>Deposite</h5>
+                    <h2> $ <span id="currentDeposite"> 00 </span></h2>
+                  </div>
+                  </div>
+                  <div class="col-md-4 ">
+                    <div class="status Witdraw">
+                      <h5>Witdraw</h5>
+                      <h2> $ <span id="currentwitdraw"> 00 </span> </h2>
+                    </div>
+                  </div>
+                  <div class="col-md-4 ">
+                    <div class="status Balance">
+                      <h5>Balance</h5>
+                      <h2> $ <span id="addbalance">00                                           </span> </h2>
+                    </div>
+
+                   </div>
+                </div>
+          </div>
+          <div class="BalanceInout">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="despositearea loging ">
+                  <h4>Deposite</h4>
+                  <input id="depositeMoney"class="form-control"type="text" name="email" value="" placeholder="$amount want to Deposite"><br>
+
+                    <button id="addMoney"  class="btn-primary btn" type="button" name="button">Deposite</button>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="Witdrawarea loging ">
+                  <h4>Witdraw</h4>
+                  <input id="balacewitdraw"class="form-control"type="text" name="email" value="" placeholder="$amount want to Witdraw"><br>
+
+                    <button id="Witdrawbtn"  class="btn-primary btn" type="button" name="button">Witdraw</button>
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+      </div>
+
+
+       <script type="text/javascript">
+         //login handler
+         const loginbtn = document.getElementById("login");
+         loginbtn.addEventListener("click" ,function(){
+           const logingArea=document.getElementById("loging-part");
+           logingArea.style.display ="none";
+           const transactionArea = document.getElementById("transaction");
+           transactionArea.style.display ="block";
+         })
+         //deposite handler
+         const depositeBtn = document.getElementById("addMoney");
+         depositeBtn.addEventListener("click", function(){
+            const depositeM =document.getElementById("depositeMoney").value;
+            const depositeV = parseFloat(depositeM);
+            const currentD =document.getElementById("currentDeposite").innerText;
+            const currentV = parseFloat(currentD);
+            const totalD = depositeV + currentV;
+            document.getElementById("currentDeposite").innerText=totalD;
+            document.getElementById("depositeMoney").value ="";
+            const newbalance =document.getElementById("addbalance").innerText;
+            const balanceadd = parseFloat(newbalance);
+            const finalbalance = balanceadd + totalD;
+            document.getElementById("addbalance").innerText=finalbalance ;
+
+
+         })
+         //witdrw handler
+           const witdrawBtn = document.getElementById("Witdrawbtn");
+            witdrawBtn.addEventListener("click", function(){
+            const witdraw =document.getElementById("balacewitdraw").value;
+            const witdrawpart = parseFloat(witdraw);
+            const mainbalance =document.getElementById("currentwitdraw").innerText;
+            const balance = parseFloat(mainbalance);
+            const balancewitdraw = balance + witdrawpart;
+            document.getElementById("currentwitdraw").innerText=balancewitdraw ;
+            document.getElementById("balacewitdraw").value ="";
+
+            const newbalance =document.getElementById("addbalance").innerText;
+            const balanceadd = parseFloat(newbalance);
+            const remainderbalance = balanceadd - balancewitdraw;
+            document.getElementById("addbalance").innerText=remainderbalance ;
+
+
+          })
+
+
+
+
+
+       </script>
+          <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+          <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+          <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+
+    </body>
+</html>

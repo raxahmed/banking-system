@@ -1,0 +1,31 @@
+body{
+padding: 100px;
+}
+.btn{
+  border-radius: 10px;
+}
+.loging{
+  margin-top: 50px;
+  padding: 40px;
+  box-shadow: 10px 10px 5px grey;
+  border-radius: 10px;
+}
+#transaction{
+  display: none;
+}
+
+.Deposite{
+  background-color: blue;
+}
+.Witdraw{
+  background-color: lightsalmon;
+}
+.Balance{
+  background-color: orange;
+}
+.status{
+  margin: 0 20px;
+  color: white;
+  padding: 22px;
+  border-radius: 10px;
+}
